@@ -11,7 +11,7 @@ namespace Parcial1_AP2_Enyer_Holguin.Models
         [Key]
         public int ArticuloId { get; set; }
         public string Descripcion { get; set; }
-        public int Exitencia { get; set; }
+        public int Existencia { get; set; }
         public double Costo { get; set; }
         public double ValorInventario { get; set; }
 
