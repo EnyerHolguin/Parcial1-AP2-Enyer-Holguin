@@ -8,7 +8,7 @@ using Parcial1_AP2_Enyer_Holguin.DAL;
 namespace Parcial1_AP2_Enyer_Holguin.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20210210232022_Inicial")]
+    [Migration("20210210233140_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,6 +27,7 @@ namespace Parcial1_AP2_Enyer_Holguin.Migrations
                         .HasColumnType("REAL");
 
                     b.Property<string>("Descripcion")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Existencia")

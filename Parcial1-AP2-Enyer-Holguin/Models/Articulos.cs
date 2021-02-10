@@ -10,7 +10,9 @@ namespace Parcial1_AP2_Enyer_Holguin.Models
     {
         [Key]
         public int ArticuloId { get; set; }
+        [Required(ErrorMessage ="Debe agragar una Descripcion de Articulo")]
         public string Descripcion { get; set; }
+        [Range(minimum:1,maximum: 100000)]
         public int Existencia { get; set; }
         public double Costo { get; set; }
         public double ValorInventario { get; set; }
