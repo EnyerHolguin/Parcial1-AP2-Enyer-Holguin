@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Parcial1_AP2_Enyer_Holguin.BLL;
 using Parcial1_AP2_Enyer_Holguin.DAL;
 using Parcial1_AP2_Enyer_Holguin.Data;
 using System;
@@ -35,7 +36,14 @@ namespace Parcial1_AP2_Enyer_Holguin
             services.AddDbContext<Contexto>(option => option.UseSqlite(
                Configuration.GetConnectionString("DefaultConnection")
                ));
+
+            services.AddTransient<ArticulosBLL>();
+
+           
         }
+
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
