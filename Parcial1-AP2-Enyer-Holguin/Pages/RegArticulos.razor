@@ -36,19 +36,25 @@
                 </div>
 
 
+              
                 <div class="form-group">
                     <label>Existencia</label>
-                    <InputNumber @bind-Value="articulo.Existencia" class="form-control col-4" />
+                    <InputNumber @bind-Value="articulo.Existencia" class="form-control" @onfocus="Calculo" @onfocusout="Calculo" @oninput="Calculo" />
+                    <ValidationMessage For="(() => articulo.Existencia)" />
                 </div>
 
+                
                 <div class="form-group">
                     <label>Costo</label>
-                    <InputNumber @bind-Value="articulo.Costo" class="form-control col-4" />
+                    <InputNumber @bind-Value="articulo.Costo" class="form-control" @onfocus="Calculo" @onfocusout="Calculo" @oninput="Calculo" />
+                    <ValidationMessage For="(() => articulo.Costo)" />
                 </div>
 
+                
                 <div class="form-group">
                     <label>Valor Inventario</label>
-                    <InputNumber @bind-Value="articulo.ValorInventario" class="form-control col-4" />
+                    <InputNumber @bind-Value="articulo.ValorInventario" class="form-control" readonly />
+                    <ValidationMessage For="(() => articulo.ValorInventario)" />
                 </div>
 
             </form>
@@ -85,7 +91,7 @@
         Nuevo();
     }
 
-   
+
     public async void Buscar()
     {
         var registro = await articuloBLL.Buscar(this.ArticuloId);
@@ -135,6 +141,11 @@
             Mensaje = ("no pudo ser eliminado.");
 
         }
+    }
+
+    private void Calculo()
+    {
+        articulo.ValorInventario = articulo.Costo * articulo.Existencia;
     }
 
     public void Limpiar()
